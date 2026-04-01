@@ -1,17 +1,17 @@
 # CLOSED-LOOP CONTROL FIRMWARE
-### Digital Variable Power Supply | Omolo Design
+## Digital Variable Power Supply | Omolo Design
 
 This repository contains the high-performance, bare-metal firmware for a digitally controlled buck converter. Designed for the **STM32F103 (Blue Pill)**, it implements precise voltage regulation and high-speed protection for a discrete power stage.
 
 ---
 
-## ⚡ HARDWARE SPECIFICATIONS
+##  HARDWARE SPECIFICATIONS
 | Parameter | Value |
 | :--- | :--- |
 | **Input Voltage** | 19.5V DC |
 | **Output Range** | 0V – 15V (Variable) |
 | **Current Limit** | 2.0A Max Output |
-| **Topology** | Synchronous Buck |
+| **Topology** | Asynchronous Buck |
 | **Switching Freq** | 100 kHz (via TIM1) |
 | **Feedback IC** | INA219 (High-Side I2C) |
 
@@ -20,10 +20,10 @@ This repository contains the high-performance, bare-metal firmware for a digital
 ##  FIRMWARE ARCHITECTURE
 The system employs a **Proportional-Integral (PI)** controller optimized for power electronics. Key logic includes high-speed sampling via the INA219 and dynamic gain adjustment to ensure stability across the full variable output range.
 
-### System Control Flow
+## System Control Flow
 ![Firmware Logic Flowchart](flowchart.png)
 
-### Core Control Features
+## Core Control Features
 
 **Soft-Start Ramp** Prevents massive inrush currents by incrementally stepping the setpoint in 100 µV intervals until the target voltage is reached.
 
