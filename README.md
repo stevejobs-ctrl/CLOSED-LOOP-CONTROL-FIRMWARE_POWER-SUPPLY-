@@ -1,11 +1,11 @@
-CLOSED-LOOP CONTROL FIRMWARE
-## Digital Variable Power Supply | Omolo Design
+# CLOSED-LOOP CONTROL FIRMWARE
+ Digital Variable Power Supply | Omolo Design
 
 This repository contains the high-performance, bare-metal firmware for a digitally controlled buck converter. Designed for the **STM32F103 (Blue Pill)**, it implements precise voltage regulation and high-speed protection for a discrete power stage.
 
 ---
 
- HARDWARE SPECIFICATIONS
+# HARDWARE SPECIFICATIONS
 | Parameter | Value |
 | :--- | :--- |
 | **Input Voltage** | 19.5V DC |
@@ -17,13 +17,13 @@ This repository contains the high-performance, bare-metal firmware for a digital
 
 ---
 
- FIRMWARE ARCHITECTURE
+# FIRMWARE ARCHITECTURE
 The system employs a **Proportional-Integral (PI)** controller optimized for power electronics. Key logic includes high-speed sampling via the INA219 and dynamic gain adjustment to ensure stability across the full variable output range.
 
 System Control Flow
 ![Firmware Logic Flowchart](flowchart.png)
 
-Core Control Features
+# Core Control Features
 
 **Soft-Start Ramp** Prevents massive inrush currents by incrementally stepping the setpoint in 100 µV intervals until the target voltage is reached.
 
@@ -34,14 +34,14 @@ Core Control Features
 **Over-Current Protection (OCP)** A dedicated safety interrupt that triggers a "Fault Trip" if the INA219 detects current exceeding 2.5A, instantly killing the PWM signal to protect the MOSFETs and load.
 
 ---
-  REPOSITORY STRUCTURE
+ # REPOSITORY STRUCTURE
 * **Core/** — Bare-metal source code and low-level register headers.
 * **Drivers/** — CMSIS and hardware-specific peripheral drivers.
 * **Hardware/** — KiCad schematic and PCB design files.
 
 ---
 
- ROADMAP
+# ROADMAP
 * **Full PID Implementation:** Adding derivative term for improved overshoot control.
 * **Telemetry:** Integration of an I2C OLED display for live V/I monitoring.
 * **Remote Interface:** UART-to-PC GUI for automated testing and logging.
